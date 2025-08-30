@@ -12,7 +12,7 @@ public class ImmutableMyDate {
     }
 
     public ImmutableMyDate withYear(int newYear) {
-        return new ImmutableMyDate(newYear, month, day);
+        return new ImmutableMyDate(newYear, month, day); // 새로운 객체를 반환함
     }
 
     public ImmutableMyDate withMonth(int newMonth) {
