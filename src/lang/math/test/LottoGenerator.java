@@ -3,18 +3,29 @@ package lang.math.test;
 import java.util.Random;
 
 public class LottoGenerator {
-    public static void main(String[] args) {
-        Random random = new Random();
-        int[] lotto = new int[6];
+    private final Random random = new Random();
+    private int[] lottoNumbers;
+    private int count;
 
-        for (int i = 0; i < 6; i++) {
-            lotto[i] = random.nextInt(1,45);
+    public int[] generate() {
+        lottoNumbers = new int[6];
+        count = 0;
+        while(count < 6){
+            int number = random.nextInt(45) + 1;
+            if(isUnique(number)){
+                lottoNumbers[count] = number;
+                count++;
+            }
         }
-        System.out.print("로또 번호:");
-        for(int l : lotto){
-            System.out.print(" " + l);
+            return lottoNumbers;
+    }
+
+    private boolean isUnique(int number) {
+        for(int i = 0 ; i < count ; i++){
+            if(number == lottoNumbers[i]){
+                return false;
+            }
         }
-
-
+        return true;
     }
 }
