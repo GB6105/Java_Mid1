@@ -1,8 +1,8 @@
 package lang.nested.test.ex1;
 
 public class Library {
-    Book[] books;
-    int bookCount = 0;
+    private Book[] books;
+    private int bookCount = 0;
 
     public Library(int count){
         this.books = new Book[count];
@@ -21,9 +21,10 @@ public class Library {
     public void addBook(String title, String author){
         if(bookCount >= books.length){
             System.out.println("도서관 저장 공간이 부족합니다.");
+        }else{
+            books[bookCount] = new Book(title, author);
+            bookCount++;
         }
-        books[bookCount] = new Book(title, author);
-        bookCount++;
     }
 
     public void showBooks(){
