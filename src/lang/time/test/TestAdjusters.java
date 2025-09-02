@@ -1,9 +1,7 @@
 package lang.time.test;
 
-
+import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 public class TestAdjusters {
@@ -12,9 +10,13 @@ public class TestAdjusters {
         int year = 2024;
         int month = 1;
         LocalDate dt = LocalDate.of(year, month, 1);
-        LocalDate firstDay = dt.with(TemporalAdjusters.firstDayOfMonth());
-        LocalDate lastDay = dt.with(TemporalAdjusters.lastDayOfMonth());
-        System.out.println("firstDayOfweek = " + firstDay.getDayOfWeek());
-        System.out.println("lastDayOfWeek = " + lastDay.getDayOfWeek());
+//        LocalDate firstDay = dt.with(TemporalAdjusters.firstDayOfMonth());
+//        LocalDate lastDay = dt.with(TemporalAdjusters.lastDayOfMonth());
+//        System.out.println("firstDayOfweek = " + firstDay.getDayOfWeek());
+//        System.out.println("lastDayOfWeek = " + lastDay.getDayOfWeek());
+        DayOfWeek firstDayOfWeek = dt.getDayOfWeek();
+        DayOfWeek lastDayOfWeek = dt.with(TemporalAdjusters.lastDayOfMonth()).getDayOfWeek();
+        System.out.println("firstDayOfWeek = "  + firstDayOfWeek);
+        System.out.println("lastDayOfWeek = " + lastDayOfWeek);
     }
 }
