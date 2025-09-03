@@ -13,6 +13,7 @@ public class Library {
     }
 
     //이 클래스 안에서 쓰지만 전혀 다른 객체임(인스턴스 공유 안함)
+    // Library의 무엇을 쓰지 않으므로
     private static class Book{
         private String title;
         private String author;
@@ -24,18 +25,27 @@ public class Library {
     }
 
     public void addBook(String title, String author){
+//        if(bookCount >= books.length){
+//            System.out.println("도서관 저장 공간이 부족합니다.");
+//        }else{// else 문으로 꼭 감싸주어야함
+//            books[bookCount] = new Book(title, author);
+//            bookCount++;
+//        }
+
+        //검증 로직 먼저 구현 스타일 (내가 하려던 것)
         if(bookCount >= books.length){
             System.out.println("도서관 저장 공간이 부족합니다.");
-        }else{// else 문으로 꼭 감싸주어야함
-            books[bookCount] = new Book(title, author);
-            bookCount++;
+            // return으로 멈추는 게 필요
+            return;
         }
+        books[bookCount++] = new Book(title, author);
     }
 
     public void showBooks(){
         System.out.println("== 책 목록 출력==");
-        for(Book book : books){
-            System.out.println("도서 제목: " + book.title + ", 저자:" + book.author);
+        // Book book : books는 배열의 빈공간을참조할 수 있으므로 사용하지 않는다.
+        for(int i = 0; i < bookCount; i++){
+            System.out.println("도서 제목: " + books[i].title + ", 저자:" + books[i].author);
         }
     }
 }
