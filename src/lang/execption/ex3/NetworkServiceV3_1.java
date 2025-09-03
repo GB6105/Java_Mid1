@@ -1,6 +1,7 @@
-package lang.execption.ex3.exception;
+package lang.execption.ex3;
 
-import lang.execption.ex3.NetworkClientV3;
+import lang.execption.ex3.exception.ConnectExecptionV3;
+import lang.execption.ex3.exception.SendExceptionV3;
 
 public class NetworkServiceV3_1 {
     public void sendMessage(String data)  {
